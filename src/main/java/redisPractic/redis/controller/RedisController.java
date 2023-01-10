@@ -21,8 +21,9 @@ public class RedisController {
     @PostMapping("/redis/insert/userInfo")
     public ResponseEntity<?> insertRedis(@RequestBody Map<String, String> map) {
 
-        UserInfo userInfo = userInfoRepository.findByUsername(map.get("username"));
-        redisSampleService.setData("username", String.valueOf(userInfo.getUsername()), 10000000L);
+//        UserInfo userInfo = userInfoRepository.findByUsername(map.get("username"));
+//        redisSampleService.setData("username", String.valueOf(userInfo.getUsername()), 10000000L);
+        redisSampleService.setData("username", map.get("username"), 10000000L);
         return ResponseEntity.ok("인설트 완료");
     }
 }
